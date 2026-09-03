@@ -9,22 +9,96 @@
 <body>
 <div class="wrap">
 
-  <header>
-    <div class="eyebrow-trace">
-      <div class="dot"></div>
-      <div class="line"></div>
-      <span class="label">DIGITAL ELECTRONICS</span>
+  <div class="module-menu">
+    <button class="menu-trigger" id="moduleMenuToggle" type="button" aria-label="Open modules menu" aria-expanded="false" aria-controls="moduleMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="module-menu-panel" id="moduleMenu" hidden>
+      <div class="menu-title">Modules</div>
+      <button class="menu-item active" data-module="number-systems" type="button">Number Systems <span>→</span></button>
+      <button class="menu-item" data-module="logic-gates" type="button">Logic Gates <span>→</span></button>
+      <button class="menu-item" data-module="adder" type="button">Adder <span>→</span></button>
+      <button class="menu-item" data-module="subtractor" type="button">Subtractor <span>→</span></button>
+      <div class="menu-status" id="menuStatus" aria-live="polite"></div>
     </div>
-    <h1>Build it <em>bit by bit.</em></h1>
-    <p class="sub">My quick number-system lab for checking decimal, binary, octal, hexadecimal, BCD and Gray code conversions. Enter a value and follow every step.</p>
-  </header>
+  </div>
+
+  <main class="welcome-view" id="welcomeView">
+    <header>
+      <div class="eyebrow-trace">
+        <div class="dot"></div>
+        <div class="line"></div>
+        <span class="label">DIGITAL ELECTRONICS</span>
+      </div>
+      <h1>Build it <em>bit by bit.</em></h1>
+      <p class="sub">Digital electronics is the study of circuits that process information using discrete signals, usually represented as 0 and 1. These signals power computers, phones, controllers and every modern digital device.</p>
+    </header>
+
+    <section class="welcome-content" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <div class="console-label">Start with a foundation</div>
+        <h2 id="welcomeTitle">Numbers are the first language of a circuit.</h2>
+        <p>Before a circuit can calculate, store or communicate, it needs a reliable way to represent values. Number systems translate those values into patterns of bits that digital hardware can understand.</p>
+        <div class="welcome-definition">
+          <strong>Digital electronics</strong>
+          <span>A branch of electronics that works with discrete signal levels to represent, process and move information.</span>
+        </div>
+      </div>
+      <figure class="bit-figure" aria-label="Illustration of digital bits flowing through a circuit">
+        <div class="bit-figure-label">SIGNAL PATH / 01</div>
+        <div class="bit-track">
+          <span class="bit-node active">1</span>
+          <span class="bit-line"></span>
+          <span class="bit-node">0</span>
+          <span class="bit-line"></span>
+          <span class="bit-node active">1</span>
+          <span class="bit-line"></span>
+          <span class="bit-node">0</span>
+        </div>
+        <div class="bit-figure-caption">A circuit reads patterns, not guesses.</div>
+      </figure>
+    </section>
+
+    <section class="learning-strip" aria-label="What you can explore">
+      <div class="learning-intro"><span class="console-label">Inside the lab</span><strong>Learn the building blocks</strong></div>
+      <div class="learning-item"><b>01</b><span>Represent values in different bases.</span></div>
+      <div class="learning-item"><b>02</b><span>Compare bits with Gray and BCD codes.</span></div>
+      <div class="learning-item"><b>03</b><span>Understand signed values with complements.</span></div>
+    </section>
+  </main>
+
+  <main class="app-view" id="appView" hidden>
+    <div class="app-heading">
+      <button class="back-action" id="backToWelcome" type="button">← Introduction</button>
+      <div>
+        <div class="console-label">Number systems</div>
+        <h2>Conversion lab</h2>
+      </div>
+    </div>
 
   <nav class="module-nav" aria-label="Digital logic modules">
-    <span class="module-option active">Number Systems</span>
-    <span class="module-option">Logic Gates</span>
-    <span class="module-option">Adder</span>
-    <span class="module-option">Subtractor</span>
+    <button class="module-option active" id="numberSystemsModule" type="button">Number Systems</button>
+    <button class="module-option ai-option" id="aiGuideToggle" type="button" aria-expanded="false" aria-controls="aiGuide">Definitions</button>
   </nav>
+
+  <aside class="ai-guide" id="aiGuide" aria-labelledby="aiGuideTitle" hidden>
+    <div class="ai-guide-head">
+      <div>
+        <div class="console-label">Quick reference</div>
+        <h2 id="aiGuideTitle">Term definitions</h2>
+      </div>
+    </div>
+    <div class="definition-grid">
+      <div class="definition"><strong>Decimal</strong><span>Base-10 system using digits 0 through 9.</span></div>
+      <div class="definition"><strong>Binary</strong><span>Base-2 system using only 0 and 1, the language of digital circuits.</span></div>
+      <div class="definition"><strong>Octal</strong><span>Base-8 system using digits 0 through 7. Each octal digit represents three binary bits.</span></div>
+      <div class="definition"><strong>Hexadecimal</strong><span>Base-16 system using 0 through 9 and A through F. Each digit represents four bits.</span></div>
+      <div class="definition"><strong>BCD (8421)</strong><span>Binary Coded Decimal: each decimal digit is stored separately as a four-bit group.</span></div>
+      <div class="definition"><strong>Gray Code</strong><span>A binary code where adjacent values differ by exactly one bit.</span></div>
+      <div class="definition"><strong>1's Complement</strong><span>Found by changing every 0 to 1 and every 1 to 0 in a fixed-width binary value.</span></div>
+      <div class="definition"><strong>2's Complement</strong><span>Found by taking the 1's complement and adding 1; commonly used to represent signed integers.</span></div>
+    </div>
+  </aside>
 
   <div class="console">
     <div class="console-label">Enter value</div>
@@ -47,9 +121,11 @@
   <div class="grid" id="resultsGrid"></div>
 
   <footer>
-    <span>6 number systems · 30 conversion paths</span>
+    <span>8 representations · 42 conversion paths</span>
     <span>All working shown — tap a card to expand</span>
   </footer>
+
+  </main>
 
 </div>
 

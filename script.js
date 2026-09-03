@@ -1,7 +1,7 @@
-const BASES = ["DEC","BIN","OCT","HEX","BCD","GRAY"];
+const BASES = ["DEC","BIN","OCT","HEX","BCD","GRAY","ONES","TWOS"];
 const BASE_RADIX = { BIN:2, OCT:8, HEX:16 };
 const BASE_FULLNAME = {
-  DEC:"Decimal", BIN:"Binary", OCT:"Octal", HEX:"Hexadecimal", BCD:"BCD (8421)", GRAY:"Gray Code"
+  DEC:"Decimal", BIN:"Binary", OCT:"Octal", HEX:"Hexadecimal", BCD:"BCD (8421)", GRAY:"Gray Code", ONES:"1's Complement", TWOS:"2's Complement"
 };
 
 let currentBase = "DEC";
@@ -16,6 +16,48 @@ const modalSteps = document.getElementById("modalSteps");
 const stepsTitle = document.getElementById("stepsTitle");
 const stepsSubtitle = document.getElementById("stepsSubtitle");
 const modalNote = document.getElementById("modalNote");
+const welcomeView = document.getElementById("welcomeView");
+const appView = document.getElementById("appView");
+const backToWelcome = document.getElementById("backToWelcome");
+const moduleMenuToggle = document.getElementById("moduleMenuToggle");
+const moduleMenu = document.getElementById("moduleMenu");
+const menuStatus = document.getElementById("menuStatus");
+const aiGuideToggle = document.getElementById("aiGuideToggle");
+const aiGuide = document.getElementById("aiGuide");
+
+moduleMenuToggle.addEventListener("click", () => {
+  const isOpen = moduleMenu.hidden;
+  moduleMenu.hidden = !isOpen;
+  moduleMenuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+moduleMenu.addEventListener("click", event => {
+  const item = event.target.closest(".menu-item");
+  if(!item) return;
+  if(item.dataset.module === "number-systems"){
+    showView("app");
+    menuStatus.textContent = "";
+    moduleMenu.hidden = true;
+    moduleMenuToggle.setAttribute("aria-expanded", "false");
+    return;
+  }
+  menuStatus.textContent = `${item.textContent.trim().replace("→", "")} module is coming soon.`;
+});
+
+function showView(view){
+  const showApp = view === "app";
+  welcomeView.hidden = showApp;
+  appView.hidden = !showApp;
+  if(showApp) inputEl.focus();
+}
+
+backToWelcome.addEventListener("click", () => showView("welcome"));
+
+aiGuideToggle.addEventListener("click", () => {
+  const isOpen = aiGuide.hidden;
+  aiGuide.hidden = !isOpen;
+  aiGuideToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
 switchesEl.addEventListener("click", (e) => {
   const sw = e.target.closest(".switch");
@@ -156,6 +198,21 @@ function bcdToDecSteps(str){
   return { result: parseInt(digits, 10), steps, digits };
 }
 
+function complementSteps(binStr, type){
+  const width = Math.max(8, Math.ceil(binStr.length / 8) * 8);
+  const padded = binStr.padStart(width, "0");
+  const inverted = padded.replace(/[01]/g, bit => bit === "0" ? "1" : "0");
+  const steps = [`Pad binary to ${width} bits: ${padded}`, `Invert every bit: ${padded} → ${inverted}`];
+
+  if(type === "ONES"){
+    return { result: inverted, steps };
+  }
+
+  const result = (BigInt(`0b${inverted}`) + 1n).toString(2).padStart(width, "0");
+  steps.push(`Add 1: ${inverted} + 1 = ${result}`);
+  return { result, steps };
+}
+
 /* ---------------- Validation ---------------- */
 
 function validateInput(str, base){
@@ -248,6 +305,16 @@ function compute(){
     }
     binIntStr = binIntStr || intS.result;
     cards.push(buildCard("BIN", result, currentBase === "BIN" ? [`This is your input value.`] : steps, currentBase === "BIN"));
+  }
+
+  // Complements use a byte-aligned width so the sign bit and leading zeroes are unambiguous.
+  {
+    const onesS = complementSteps(binIntStr, "ONES");
+    const note = decFrac > 0 ? "Complement shown for the integer part only." : null;
+    cards.push(buildCard("ONES", onesS.result, currentBase === "ONES" ? [`This is your input value.`] : onesS.steps, currentBase === "ONES", note));
+
+    const twosS = complementSteps(binIntStr, "TWOS");
+    cards.push(buildCard("TWOS", twosS.result, currentBase === "TWOS" ? [`This is your input value.`] : twosS.steps, currentBase === "TWOS", note));
   }
 
   // OCT card
