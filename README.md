@@ -1,104 +1,153 @@
-# 🔢 Digital Electronics Toolkit
+# ⚡ Digital Electronics
 
-A web-based **Digital Electronics Toolkit** designed to provide interactive tools and calculators for important concepts in Digital Electronics.
+> **Build it bit by bit.**
 
-The project currently starts with a **Number System Converter**, and more Digital Electronics modules will be added gradually.
+A web-based **Digital Electronics Toolkit** designed to make important digital electronics concepts easier to understand through interactive tools, calculations, truth tables, and circuit simulations.
 
-## 🚀 Current Module
+This project is being developed step-by-step, starting with **Number System conversions** and gradually expanding into a complete Digital Electronics learning platform.
 
-### 🔢 Number System Converter
+## 🌐 Live Website
 
-Convert numbers between different number systems:
+🚀 **[Open Digital Electronics](https://digitalelectronicss.netlify.app/)**
 
-* Binary
+---
+
+## 🔢 Currently Available
+
+### Number System Converter
+
+Convert between:
+
 * Decimal
+* Binary
 * Octal
 * Hexadecimal
+* BCD
+* Gray Code
 
-The converter provides quick and easy conversions through a simple web interface.
+The converter supports multiple conversion paths and provides **step-by-step working** to help understand how the conversion is performed.
 
-## 🔮 Upcoming Modules
+---
 
-This project is continuously being developed. More Digital Electronics tools will be added in future updates.
+## 🚧 Coming Soon
 
-### 🚧 Planned Features
+The project will gradually include more Digital Electronics concepts and interactive tools.
 
-* 🔢 Number System Converter ✅
-* 🚪 Logic Gates
+### 🚪 Logic Gates
 
-  * AND
-  * OR
-  * NOT
-  * NAND
-  * NOR
-  * XOR
-  * XNOR
-* 📊 Truth Tables
-* ➕ Half Adder
-* ➕ Full Adder
-* ➖ Half Subtractor
-* ➖ Full Subtractor
-* 🔀 Multiplexer (MUX)
-* 🔀 Demultiplexer (DEMUX)
-* 🧮 Encoder
-* 🧮 Decoder
-* 🔄 Flip-Flops
-* ⏱️ Counters
-* 📝 Boolean Algebra Tools
-* 📐 Logic Circuit Visualization
+* AND Gate
+* OR Gate
+* NOT Gate
+* NAND Gate
+* NOR Gate
+* XOR Gate
+* XNOR Gate
 
-## 🎯 Project Goal
+### 📊 Truth Tables
 
-The goal of this project is to build a **complete Digital Electronics learning toolkit** where students can understand and interact with important concepts through practical web-based simulations and calculators.
+* Logic Gate Truth Tables
+* Interactive Input/Output
+* Boolean Expression
+* Truth Table Generation
 
-Instead of having separate tools for each topic, this project aims to bring commonly used Digital Electronics concepts together in one place.
+### ➕ Adders
 
-## 🛠️ Technologies
+* Half Adder
+* Full Adder
+
+### ➖ Subtractors
+
+* Half Subtractor
+* Full Subtractor
+
+### 🔀 Multiplexer & Demultiplexer
+
+* 2:1 MUX
+* 4:1 MUX
+* 8:1 MUX
+* DEMUX
+
+### 🧩 More Digital Circuits
+
+* Encoder
+* Decoder
+* Comparator
+* Flip-Flops
+* Registers
+* Counters
+* Shift Registers
+
+### 📐 Circuit Visualization
+
+Interactive circuit diagrams and simulations will be added as the project develops.
+
+---
+
+## 🗺️ Project Roadmap
+
+| Feature                        | Status         |
+| ------------------------------ | -------------- |
+| Number System Converter        | ✅ Completed    |
+| Decimal / Binary / Octal / Hex | ✅ Completed    |
+| BCD & Gray Code                | ✅ Completed    |
+| Step-by-Step Conversion        | ✅ Completed    |
+| Logic Gates                    | 🚧 In Progress |
+| Truth Tables                   | 🚧 Planned     |
+| Half Adder                     | 🚧 Planned     |
+| Full Adder                     | 🚧 Planned     |
+| Half Subtractor                | 🚧 Planned     |
+| Full Subtractor                | 🚧 Planned     |
+| Multiplexer                    | 🚧 Planned     |
+| Demultiplexer                  | 🚧 Planned     |
+| Encoder & Decoder              | 🚧 Planned     |
+| Flip-Flops                     | 🚧 Planned     |
+| Counters                       | 🚧 Planned     |
+| Circuit Simulator              | 🚧 Planned     |
+
+---
+
+## 🎯 Goal
+
+The main goal of this project is to create a **single interactive platform for learning and practicing Digital Electronics**.
+
+Instead of only reading theory, users will be able to:
+
+* Perform calculations
+* Generate truth tables
+* Understand logic gates
+* Build basic digital circuits
+* Visualize circuit outputs
+* Learn concepts interactively
+
+---
+
+## 🛠️ Technologies Used
 
 * HTML5
 * CSS3
 * JavaScript
+* Netlify
 
-More technologies may be added as the project grows.
+More technologies may be introduced as the project grows.
 
-## 📂 Project Structure
+---
 
-```text
-Digital-Electronics-Toolkit/
-│
-├── index.html
-├── styles.css
-├── script.js
-└── README.md
-```
+## 📈 Development
 
-## 🌐 Live Demo
+This is an **ongoing project**.
 
-🔗 **[Number System Converter](https://number-system-convertor-nu.vercel.app/)**
+New Digital Electronics modules will be added regularly, gradually transforming the project from a simple number-system converter into a complete interactive Digital Electronics toolkit.
 
-## 📈 Development Roadmap
-
-| Module                  | Status         |
-| ----------------------- | -------------- |
-| Number System Converter | ✅ Completed    |
-| Logic Gates             | 🚧 Coming Soon |
-| Truth Tables            | 🚧 Coming Soon |
-| Half Adder              | 🚧 Coming Soon |
-| Full Adder              | 🚧 Coming Soon |
-| Half Subtractor         | 🚧 Coming Soon |
-| Full Subtractor         | 🚧 Coming Soon |
-| Multiplexer             | 🚧 Coming Soon |
-| Demultiplexer           | 🚧 Coming Soon |
-| Encoder / Decoder       | 🚧 Coming Soon |
-| Flip-Flops              | 🚧 Coming Soon |
-| Counters                | 🚧 Coming Soon |
+---
 
 ## 👨‍💻 Author
 
 **Gaurav Singh**
 
-B.Tech – Electronics & Communication Engineering (ECE)
+B.Tech — Electronics & Communication Engineering (ECE)
 
 ---
 
-⭐ This project is actively being developed. More Digital Electronics tools and simulations will be added in future updates.
+⭐ **Star the repository if you find this project useful!**
+
+🔗 **Live Project:** https://digitalelectronicss.netlify.app/
